@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {UserService} from "./services/user.service";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +8,4 @@ import {UserService} from "./services/user.service";
 export class AppComponent {
   title = 'apr2021Angular';
 
-
-  // private userService: UserService;
-  // constructor(userService: UserService) {
-  //   this.userService = userService;
-  //   this.userService.doSomeFun();
-  // }
-
-
-  // constructor(private userService:UserService) {
-  //   this.userService.doSomeFun();
-  // }
 }
