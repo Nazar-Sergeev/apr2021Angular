@@ -6,12 +6,20 @@ import {RouterModule, Routes} from "@angular/router";
 import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/user/user.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { PostComponent } from './components/post/post.component';
+import { PostsComponent } from './components/posts/posts.component';
+import { PostDetailsComponent } from './components/post-details/post-details.component';
+import {UserGuardService} from "./services/user-guard.service";
+import {PostGuardService} from "./services/post-guard.service";
 
 
 const routes: Routes = [
-  {path: '', component:UsersComponent},
+  // {path: '', component:UsersComponent},
+  {path: 'users', component: UsersComponent, canDeactivate: [UserGuardService]},
   {path: 'users/:id', component: UserDetailsComponent },
-  {path: 'users', redirectTo: '', pathMatch: 'full'}
+  {path: 'posts', component: PostsComponent, canDeactivate: [PostGuardService]},
+  {path: 'posts/:id', component: PostDetailsComponent}
+  // {path: 'users', redirectTo: '', pathMatch: 'full'}
 ]
 
 @NgModule({
@@ -19,7 +27,10 @@ const routes: Routes = [
     AppComponent,
     UsersComponent,
     UserComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    PostComponent,
+    PostsComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
